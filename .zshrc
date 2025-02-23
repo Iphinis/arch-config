@@ -1,3 +1,13 @@
+# Auto completion (by compinstall)
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' max-errors 3 numeric
+zstyle :compinstall filename '/home/iphinis/.zshrc'
+
+autoload -Uz compinit && compinit
+
 # Key bindings
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
@@ -6,7 +16,7 @@ bindkey "^[[3~" delete-char
 # Custom prompt string
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats " (%b)"
-setopt prompt_subst
+setopt PROMPT_SUBST
 PROMPT='%F{blue}%~%f%F{green}${vcs_info_msg_0_}%f %# '
 
 # store last command name
@@ -45,11 +55,11 @@ alias pacman='pacman --color=auto'
 
 alias yay='yay --color=auto'
 
-alias vim='nvim'
-alias v='nvim'
+alias {vim,vi,v}='nvim'
 
 # Other
-setopt AUTO_CD # folders are commands to cd in them
+setopt AUTO_CD # folders are considered as commands that cd to them
+export MANPAGER='nvim +Man!' # neovim manpager instead of less
 
 # History
 HISTFILE=~/.zsh_history
@@ -59,20 +69,22 @@ SAVEHIST=$HISTSIZE
 HISTORY_IGNORE="(ls(| *)|cd(| *)|clear|pwd|exit)"
 # don't save failed commands
 zshaddhistory() {
-	whence ${${(z)1}[1]} >/dev/null || return 2
+	[[ $? -ne 0 ]] || return 1
 }
 
-setopt HIST_APPEND               # append instead of overwrite
-#setopt INC_APPEND_HISTORY        # append command to history as soon as it is runned, without timestamp
-setopt SHARE_HISTORY             # share history between sessions, with timestamps to ensure its correctness
 setopt HIST_IGNORE_SPACE         # don't record an entry starting with a space.
 
-setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
-setopt HIST_FIND_NO_DUPS         # 
+setopt HIST_EXPIRE_DUPS_FIRST           # trim dups in priority when necessary
+
 setopt HIST_SAVE_NO_DUPS         # don't save duplicates
 
 setopt HIST_NO_STORE             # don't save the history command
 
+setopt SHARE_HISTORY             # share history between sessions, with timestamps to ensure its correctness
+
 ## Use fzf for better history search and more
+#oldpackage(arch)
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+# Set up fzf key bindings and fuzzy completion
+#source <(fzf --zsh)
