@@ -1,12 +1,6 @@
-# Auto completion (by compinstall)
-
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*' max-errors 3 numeric
-zstyle :compinstall filename '/home/iphinis/.zshrc'
-
-autoload -Uz compinit && compinit
+# Auto completion
+autoload -Uz compinit
+compinit
 
 # Key bindings
 bindkey "^[[H" beginning-of-line
@@ -66,25 +60,13 @@ HISTFILE=~/.zsh_history
 HISTSIZE=9999
 SAVEHIST=$HISTSIZE
 
-HISTORY_IGNORE="(ls(| *)|cd(| *)|clear|pwd|exit)"
-# don't save failed commands
-zshaddhistory() {
-	[[ $? -ne 0 ]] || return 1
-}
+HISTORY_IGNORE="(history|ls(| *)|cd(| *)|clear|pwd|exit)"
 
 setopt HIST_IGNORE_SPACE         # don't record an entry starting with a space.
 
-setopt HIST_EXPIRE_DUPS_FIRST           # trim dups in priority when necessary
-
 setopt HIST_SAVE_NO_DUPS         # don't save duplicates
-
-setopt HIST_NO_STORE             # don't save the history command
 
 setopt SHARE_HISTORY             # share history between sessions, with timestamps to ensure its correctness
 
 ## Use fzf for better history search and more
-#oldpackage(arch)
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-# Set up fzf key bindings and fuzzy completion
-#source <(fzf --zsh)
+source <(fzf --zsh)
