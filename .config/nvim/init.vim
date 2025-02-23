@@ -1,13 +1,13 @@
 set nu
 
+set clipboard=unnamedplus
+
 set termguicolors
 
-set clipboard=unnamedplus
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 call plug#begin()
 
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
-
-lua require'colorizer'.setup()
