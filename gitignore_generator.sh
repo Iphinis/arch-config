@@ -4,6 +4,8 @@
 FILE_EXCEPTIONS=(
   ".gitignore"
   ".zshrc"
+  "README.md"
+  "LICENSE"
   "$(basename "$0")" # current script
 )
 

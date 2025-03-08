@@ -1,6 +1,8 @@
 *
 !.gitignore
 !.zshrc
+!README.md
+!LICENSE
 !gitignore_generator.sh
 
 !scripts/
