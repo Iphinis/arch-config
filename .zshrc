@@ -1,17 +1,38 @@
-# Auto completion
-autoload -Uz compinit
-compinit
-
 # Key bindings
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-bindkey "^[[3~" delete-char
+bindkey "^[[H" beginning-of-line   # end
+bindkey "^[[F" end-of-line         # home
+bindkey "^[[3~" delete-char        # del
+
+# default text editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Auto completion
+autoload -Uz compinit; compinit
+
+zstyle ':completion:*:*:*:*:*' menu select # selection menu
+zstyle ':completion:*' complete yes
+zstyle ':completion:*' accept-exact yes
+zstyle ':completion:*' auto-description 'specify: %d' # placeholder in prompt of current completion
+zstyle ':completion:*' completer _expand _complete # globbing (filename expansion) and complete with other arguments
+zstyle ':completion:*' group-name ''
+
+zstyle ':completion:*' list-colors '' # colorize completion options
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matcher
+zstyle ':completion:*' rehash true # rebuild completion cache when installing a new command
+zstyle ':completion:*' use-compctl false # disable old completion system
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,tty,cmd f' # kill command completion
+zstyle ':completion:*' use-cache on # use cache to speed up some commands
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
 # Custom prompt string
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats " (%b)"
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%~%f%F{green}${vcs_info_msg_0_}%f %# '
+PROMPT='%F{blue}%~%f%F{green}${vcs_info_msg_0_}%f %% '
 
 # store last command name
 function preexec() {
@@ -23,7 +44,7 @@ first_cmd=true
 precmd() {
 	vcs_info
 
-	if [[ $last_cmd == "clear" ]]; then
+	if [[ $last_cmd == "clear" || $last_cmd == "c" ]]; then
 		first_cmd=true
 		last_cmd=
 	fi
@@ -36,6 +57,7 @@ precmd() {
 
 # Aliases
 alias clear=' clear && printf "\033[3J"'
+alias c=' clear'
 
 alias ls=' ls --color=auto'
 alias ll=' ls -l'
@@ -52,7 +74,7 @@ alias yay='yay --color=auto'
 alias {vim,vi,v}='nvim'
 
 # Other
-setopt AUTO_CD # folders are considered as commands that cd to them
+setopt AUTO_CD # folders are considered as commands that cd to them, if their name is not used as a command.
 export MANPAGER='nvim +Man!' # neovim manpager instead of less
 
 # History
@@ -60,7 +82,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=9999
 SAVEHIST=$HISTSIZE
 
-HISTORY_IGNORE="(history|ls(| *)|cd(| *)|clear|pwd|exit)"
+#HISTORY_IGNORE="(history|ls(| *)|cd(| *)|clear|pwd|exit)"
 
 setopt HIST_IGNORE_SPACE         # don't record an entry starting with a space.
 
