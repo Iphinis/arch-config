@@ -1,0 +1,7 @@
+fastfetch
+btop
+pavucontrol
+bat
+tldr
+discord
+spotify-launcher
