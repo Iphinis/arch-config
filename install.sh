@@ -39,3 +39,6 @@ sudo pacman -S --needed - < $PKGCONF/fonts.txt
 
 # yay packages
 yay -S --needed - < $PKGCONF/aur-packages.txt
+
+# systemctl
+systemctl enable --now betterlockscreen@$(logname).service
