@@ -3,10 +3,6 @@ bindkey "^[[H" beginning-of-line   # end
 bindkey "^[[F" end-of-line         # home
 bindkey "^[[3~" delete-char        # del
 
-# default text editor
-export EDITOR="nvim"
-export VISUAL="nvim"
-
 # Auto completion
 autoload -Uz compinit; compinit
 
@@ -72,6 +68,14 @@ alias pacman='pacman --color=auto'
 alias yay='yay --color=auto'
 
 alias {vim,vi,v}='nvim'
+
+alias gs='git status'
+alias ga='git add'
+alias gm='git commit -m'
+alias gp='git pull'
+alias gpp='git push'
+alias gd='git diff'
+alias gb='git branch'
 
 # Other
 setopt AUTO_CD # folders are considered as commands that cd to them, if their name is not used as a command.

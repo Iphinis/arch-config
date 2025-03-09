@@ -39,7 +39,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id setxkbmap -layout us -variant intl
 
 # Use dunst and notify-send to show informations
-bindsym $mod+i exec --no-startup-id $HOME/scripts/informations.sh
+bindsym $mod+i exec --no-startup-id $HOME/.config/scripts/informations.sh
 
 # Use brightnessctl to adjust screen's brightness.
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%

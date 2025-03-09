@@ -1,11 +1,10 @@
 *
 !.gitignore
-!.zshrc
+!README.md
+!LICENSE
 !gitignore_generator.sh
-
-!scripts/
-!scripts/**
-
+!install.sh
+!.zshrc
 
 !.config/i3/
 !.config/i3/**
@@ -27,5 +26,11 @@
 
 !.config/gtk-3.0/
 !.config/gtk-3.0/**
+
+!.config/scripts/
+!.config/scripts/**
+
+!.config/packages/
+!.config/packages/**
 
 

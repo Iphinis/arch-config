@@ -2,24 +2,24 @@
 
 # List of paths not to be ignored
 FILE_EXCEPTIONS=(
-  ".gitignore"
-  ".zshrc"
-  "$(basename "$0")" # current script
-)
-
-DIR_EXCEPTIONS=(
-#  ".config"
-  "scripts"
+	".gitignore"
+	"README.md"
+	"LICENSE"
+	"$(basename "$0")" # current script
+	"install.sh"
+	".zshrc"
 )
 
 CONFIG_EXCEPTIONS=(
-  "i3"
-  "picom"
-  "dunst"
-  "kitty"
-  "nvim"
-  "flameshot"
-  "gtk-3.0"
+	"i3"
+	"picom"
+	"dunst"
+	"kitty"
+	"nvim"
+	"flameshot"
+	"gtk-3.0"
+	"scripts"
+	"packages"
 )
 
 # Build the .gitignore content
@@ -27,13 +27,6 @@ GITIGNORE_CONTENT="*\n"  # ignore everything by default
 
 for path in "${FILE_EXCEPTIONS[@]}"; do
   GITIGNORE_CONTENT+="!$path\n"
-done
-
-GITIGNORE_CONTENT+="\n"
-
-for path in "${DIR_EXCEPTIONS[@]}"; do
-  GITIGNORE_CONTENT+="!$path/\n"
-  GITIGNORE_CONTENT+="!$path/**\n\n"
 done
 
 GITIGNORE_CONTENT+="\n"
