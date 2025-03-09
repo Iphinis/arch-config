@@ -93,8 +93,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=9999
 SAVEHIST=$HISTSIZE
 
-#HISTORY_IGNORE="(history|ls(| *)|cd(| *)|clear|pwd|exit)"
-
 setopt HIST_IGNORE_SPACE         # don't record an entry starting with a space.
 
 setopt HIST_SAVE_NO_DUPS         # don't save duplicates
@@ -103,3 +101,5 @@ setopt SHARE_HISTORY             # share history between sessions, with timestam
 
 ## Use fzf for better history search and more
 source <(fzf --zsh)
+
+tldr --update
