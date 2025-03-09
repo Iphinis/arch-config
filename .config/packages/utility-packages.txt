@@ -2,6 +2,6 @@ fastfetch
 btop
 pavucontrol
 bat
-tldr
+tealdear
 discord
 spotify-launcher

@@ -69,13 +69,14 @@ alias yay='yay --color=auto'
 
 alias {vim,vi,v}='nvim'
 
+alias gp='git pull'
+alias gb='git branch'
 alias gs='git status'
+alias gd='git diff'
 alias ga='git add'
 alias gm='git commit -m'
-alias gp='git pull'
+alias gc='git commit'
 alias gpp='git push'
-alias gd='git diff'
-alias gb='git branch'
 
 # Other
 setopt AUTO_CD # folders are considered as commands that cd to them, if their name is not used as a command.

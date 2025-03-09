@@ -27,8 +27,6 @@ exec_always --no-startup-id betterlockscreen --wall
 
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -s blur || systemctl suspend
 
-#exec --no-startup-id rfkill unblock all
-
 # Run picom as daemon (compositor)
 exec --no-startup-id picom -b
 
@@ -76,7 +74,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # Use rofi as a program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run -no-lazy-grab -matching prefix -auto-select -disable-history -show-icons -run-command "i3-msg exec '{cmd}'" -theme rounded-nord-dark.rasi
+bindsym $mod+d exec --no-startup-id rofi -show run -no-lazy-grab -auto-select -disable-history -show-icons -run-command "i3-msg exec '{cmd}'"
 
 # Use rofi as a powermenu (not working)
 #bindsym $mod+Shift+p exec --no-startup-id rofi -show power-menu -modi "power-menu:./rofi-power-menu --choices=shutdown/reboot"
