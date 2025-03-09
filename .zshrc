@@ -60,6 +60,8 @@ alias ll=' ls -l'
 alias la=' ls -a'
 alias lla=' ls -la'
 
+alias lsblk='lsblk -o NAME,MOUNTPOINT,TYPE,FSTYPE,SIZE'
+
 alias grep='grep --color=auto'
 
 alias sudo='sudo '
