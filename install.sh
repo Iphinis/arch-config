@@ -2,7 +2,7 @@
 
 echo "[iphinis' config automated installation]"
 
-CURPATH=$(dirname "$(realpath "$0")")
+CURPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 PKGCONF=$CURPATH/.config/packages
 
 echo "[copying config to home directory...]"

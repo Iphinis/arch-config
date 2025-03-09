@@ -1,7 +1,11 @@
 fastfetch
 btop
 pavucontrol
+zip
+unzip
 bat
-tealdear
+obsidian
+godot-mono
 discord
+obs-studio
 spotify-launcher
