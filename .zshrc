@@ -103,5 +103,3 @@ setopt SHARE_HISTORY             # share history between sessions, with timestam
 
 ## Use fzf for better history search and more
 source <(fzf --zsh)
-
-tldr --update
