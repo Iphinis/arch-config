@@ -78,6 +78,12 @@ alias gm='git commit -m'
 alias gc='git commit'
 alias gpp='git push'
 
+alias oserve='ollama serve'
+alias orun='ollama run'
+alias olist='ollama list'
+alias opull='ollama pull'
+alias ops='ollama ps'
+
 # Other
 setopt AUTO_CD # folders are considered as commands that cd to them, if their name is not used as a command.
 export MANPAGER='nvim +Man!' # neovim manpager instead of less

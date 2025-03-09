@@ -9,3 +9,4 @@ godot-mono
 discord
 obs-studio
 spotify-launcher
+ollama
