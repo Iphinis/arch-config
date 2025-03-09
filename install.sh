@@ -35,6 +35,7 @@ fi
 sudo pacman -S --needed - < $PKGCONF/core-packages.txt
 sudo pacman -S --needed - < $PKGCONF/utility-packages.txt
 sudo pacman -S --needed - < $PKGCONF/browser-packages.txt
+sudo pacman -S --needed - < $PKGCONF/fonts.txt
 
 # yay packages
 yay -S --needed - < $PKGCONF/aur-packages.txt
