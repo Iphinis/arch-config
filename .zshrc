@@ -52,15 +52,16 @@ precmd() {
 }
 
 # Aliases
-alias clear=' clear && printf "\033[3J"'
-alias c=' clear'
+alias clear='clear && printf "\033[3J"'
+alias c='clear'
 
-alias ls=' ls --color=auto'
-alias ll=' ls -l'
-alias la=' ls -a'
-alias lla=' ls -la'
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lal='ls -al'
 
-alias lsblk='lsblk -o NAME,MOUNTPOINT,TYPE,FSTYPE,SIZE'
+alias lsblk='lsblk -f'
 
 alias grep='grep --color=auto'
 
