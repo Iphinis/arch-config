@@ -52,6 +52,9 @@ precmd() {
 }
 
 # Aliases
+alias shut='shutdown now'
+alias reb='reboot'
+
 alias clear='clear && printf "\033[3J"'
 alias c='clear'
 
