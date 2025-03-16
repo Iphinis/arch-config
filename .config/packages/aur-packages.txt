@@ -1,3 +1,4 @@
 tealdear
 ani-cli
 betterlockscreen
+typeracer
