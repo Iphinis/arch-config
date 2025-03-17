@@ -75,6 +75,8 @@ alias yay='yay --color=auto'
 
 alias {vim,vi,v}='nvim'
 
+alias cal='cal -3m'
+
 alias gp='git pull'
 alias gb='git branch'
 alias gs='git status'
@@ -107,3 +109,5 @@ setopt SHARE_HISTORY             # share history between sessions, with timestam
 
 ## Use fzf for better history search and more
 source <(fzf --zsh)
+
+export PATH=$PATH:/usr/bin/geckodriver

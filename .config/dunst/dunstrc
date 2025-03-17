@@ -111,7 +111,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#2E3440F2"
+    frame_color = "#84382E"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -337,7 +337,6 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-# #88C0D0F2
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
@@ -348,8 +347,8 @@
     default_icon = //dialog-information
 
 [urgency_normal]
-    background = "#88c0d0"
-    foreground = "#2E3440"
+    background = "#F05D4D"
+    foreground = "#14161B"
     timeout = 10
     override_pause_level = 30
     # Icon for notifications with normal urgency
