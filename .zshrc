@@ -59,6 +59,7 @@ alias clear='clear && printf "\033[3J"'
 alias c='clear'
 
 alias ls='ls --color=auto'
+alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
