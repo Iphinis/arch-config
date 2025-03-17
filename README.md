@@ -33,6 +33,6 @@ arch-config/install.sh
 
 #672E26
 
-#1D120F
+#1E1310
 
 #14161B
