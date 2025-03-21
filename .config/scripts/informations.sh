@@ -2,11 +2,11 @@
 
 path=$(dirname "$0")
 
-network=$($path/network.sh 2>/dev/null || echo "No network info or bash script error")
+network=$($path/network.sh 2>/dev/null || "No info")
 
-battery=$($path/battery.sh 2>/dev/null || echo "No battery info available or bash script error")
+battery=$($path/battery.sh 2>/dev/null || "No info")
 
-date=$(date +"<u>%A</u> <b>%H:%M:%S %d/%m</b> <i>(week %V)</i>")
+date=$(date +"<u>%a %d/%m</u> <b>%H:%M:%S</b> <i>(week %V)</i>")
 
 	titles=('d[ o_0 ]b' '⌐(ಠ۾ಠ)¬' '~(‾▿‾)~' '‹(•_•)›' '(◣_◢)' 'd(^o^)b' '\(^-^)/' '╰(◣‿◢)╯' 'i use arch btw' 'ʕ•ᴥ•ʔ' '(◕‿◕)' '(⌐■_■)' 'ᕦ(ò_ó)ᕤ' '(ಠ_ಠ)' '(◢_◣)' '(ಠ_x)' '(╯°□°)╯ ┻━┻')
 rnd_idx=$((RANDOM % ${#titles[@]}))
