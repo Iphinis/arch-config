@@ -34,7 +34,7 @@ exec --no-startup-id picom -b
 exec_always --no-startup-id autotiling
 
 # set US Keyboard variant
-exec_always --no-startup-id setxkbmap -layout us -variant intl
+#exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 
 # Use dunst and notify-send to show informations
 bindsym $mod+i exec --no-startup-id $HOME/.config/scripts/informations.sh

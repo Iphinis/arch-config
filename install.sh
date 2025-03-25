@@ -12,6 +12,9 @@ mkdir -p ~/.config
 mkdir -p ~/images/screenshots
 cp $CURPATH/.config/* ~/.config/ --verbose --update -R
 
+# keyboard layout
+localectl set-x11-keymap --no-convert us "" altgr-intl
+
 # zsh installation
 if ! pacman -Qs "zsh" > /dev/null; then
 	echo "[zsh installation]"
