@@ -1,11 +1,14 @@
 #!/bin/bash
 
-echo "[iphinis' config automated installation]"
+(set +x; echo -e "\n[iphinis' config automated installation]")
+
+# enable shell debugging
+set -x
 
 CURPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 PKGCONF=$CURPATH/.config/packages
 
-echo "[copying config to home directory...]"
+(set +x; echo -e "\n[copying config to home directory...]")
 cat $PKGCONF/files.txt | xargs -I FILE cp $CURPATH/FILE ~/ --verbose --update
 
 mkdir -p ~/.config
@@ -17,18 +20,18 @@ localectl set-x11-keymap --no-convert us "" altgr-intl
 
 # zsh installation
 if ! pacman -Qs "zsh" > /dev/null; then
-	echo "[zsh installation]"
+(set +x; echo -e "\n[zsh installation]")
 	sudo pacman -S --needed zsh zsh-completions
 fi
 zshpath="/usr/bin/zsh"
 if [[ $SHELL != $zshpath ]]; then
-	echo "[changing shell to zsh]"
+(set +x; echo -e "\n[changing shell to zsh]")
 	chsh -s $zshpath
 fi
 
 # yay installation
 if ! pacman -Qs "yay" > /dev/null; then
-	echo "[yay installation]"
+(set +x; echo -e "\n[yay installation]")
 	sudo pacman -S --needed git base-devel
 	git clone https://aur.archlinux.org/yay.git
 	cd yay
@@ -38,23 +41,26 @@ if ! pacman -Qs "yay" > /dev/null; then
 fi
 
 # pacman packages
-echo "[core-packages installation]"
+(set +x; echo -e "\n[core-packages installation]")
 sudo pacman -S --needed - < $PKGCONF/core-packages.txt
-echo "[utility-packages installation]"
+(set +x; echo -e "\n[utility-packages installation]")
 sudo pacman -S --needed - < $PKGCONF/utility-packages.txt
-echo "[browser-packages installation]"
+(set +x; echo -e "\n[browser-packages installation]")
 sudo pacman -S --needed - < $PKGCONF/browser-packages.txt
-echo "[fonts installation]"
+(set +x; echo -e "\n[fonts installation]")
 sudo pacman -S --needed - < $PKGCONF/fonts.txt
 
 # yay packages
-echo "[aur-packages installation]"
+(set +x; echo -e "\n[aur-packages installation]")
 yay -S --needed - < $PKGCONF/aur-packages.txt
 
 # systemd services
-echo "[systemd services activation]"
+(set +x; echo -e "\n[systemd services activation]")
 BTRLCK=betterlockscreen@$(logname).service
 if [[ $(systemctl is-enabled $BTRLCK) != "enabled" ]]; then
 	echo $BTRLCK
 	systemctl enable $BTRLCK
 fi
+
+# disable shell debugging
+set +x
