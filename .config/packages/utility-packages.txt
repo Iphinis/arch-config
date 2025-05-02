@@ -10,3 +10,4 @@ discord
 obs-studio
 spotify-launcher
 ollama
+libreoffice-still
