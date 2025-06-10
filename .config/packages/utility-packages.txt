@@ -5,7 +5,7 @@ zip
 unzip
 bat
 obsidian
-godot-mono
+godot
 discord
 obs-studio
 spotify-launcher
