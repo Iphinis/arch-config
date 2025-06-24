@@ -12,7 +12,7 @@ PKGCONF=$CURPATH/.config/packages
 cat $PKGCONF/files.txt | xargs -I FILE cp $CURPATH/FILE ~/ --verbose --update
 
 mkdir -p ~/.config
-mkdir -p ~/images/screenshots
+mkdir -p $(xdg-user-dir PICTURES)/Screenshots
 cp $CURPATH/.config/* ~/.config/ --verbose --update -R
 
 # keyboard layout

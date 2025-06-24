@@ -22,7 +22,7 @@ font pango:DejaVu Sans Mono 8, Terminus Bold Semi-Condensed 8
 exec --no-startup-id dex --autostart --environment i3
 
 # Use betterlockscreen set wallpaper and lockscreen
-exec_always --no-startup-id betterlockscreen --update $HOME/images/wallpapers
+exec_always --no-startup-id sh -c 'betterlockscreen --update "$(xdg-user-dir PICTURES)/Wallpapers"'
 exec_always --no-startup-id betterlockscreen --wall
 
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -s blur || systemctl suspend || betterlockscreen -l
@@ -58,7 +58,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+z exec --no-startup-id thunar
 
 # Use flameshot to screenshot
-bindsym $mod+Shift+S exec --no-startup-id flameshot gui --path $HOME/images/screenshots
+bindsym $mod+Shift+S exec --no-startup-id flameshot gui
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
