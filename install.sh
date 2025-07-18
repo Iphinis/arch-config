@@ -5,6 +5,8 @@
 # enable shell debugging
 set -x
 
+source script-env.sh
+
 CURPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 PKGCONF=$CURPATH/.config/packages
 
@@ -56,22 +58,5 @@ yay -S --needed - < $PKGCONF/aur-packages.txt
 
 # systemd services
 (set +x; echo -e "\n[systemd services activation]")
-
-systemctl daemon-reload
-
-LCK=betterlockscreen@$(logname).service
-if [[ $(systemctl is-enabled $LCK) != "enabled" ]]; then
-	echo $LCK
-	systemctl enable --now $LCK
-fi
-
-systemctl --user daemon-reload
-
-BAT=battery-notify.timer
-if [[ $(systemctl is-enabled $BAT) != "enabled" ]]; then
-	echo $BAT
-	systemctl --user enable --now $BAT
-fi
-
-# disable shell debugging
-set +x
+chmod +x ./services.sh
+./services.sh
