@@ -1,5 +1,4 @@
+betterlockscreen
 tealdear
 sioyek-git
-ani-cli
-betterlockscreen
 typeracer

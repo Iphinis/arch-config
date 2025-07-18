@@ -1,6 +1,7 @@
 git
 man
 kitty
+xterm
 vi
 vim
 neovim
@@ -19,5 +20,13 @@ autotiling
 flameshot
 xsel
 
-hyprland
-fuzzel
+pipewire-audio
+pavucontrol
+
+bluez
+bluez-utils
+bluez-tools
+bluez-libs
+blueberry
+
+gnome-keyring
