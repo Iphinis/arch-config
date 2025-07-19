@@ -1,6 +1,6 @@
 # Configuration
 - OS: Arch Linux x86\_64
-- Kernel: zen (lts in backup)
+- Kernels: linux-zen, linux-lts
 - File system: BTRFS
 - Shell: zsh
 - WM: i3-wm

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # battery threshold
-THRESHOLD=10
+THRESHOLD=20
 
 CAPACITY_FILE="/sys/class/power_supply/BAT0/capacity"
 STATUS_FILE="/sys/class/power_supply/BAT0/status"
