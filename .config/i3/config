@@ -168,17 +168,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 focus_on_window_activation urgent
 
-# assigning windows to specific ws (on startup | runtime)
-
-for_window [class=Steam] move to workspace $ws7
-
-for_window [class=Signal] move to workspace $ws8
-
-assign [title=Discord] $ws9
-
-for_window [class=Spotify] move to workspace $ws10
-for_window [class=pavucontrol] move to workspace $ws10
-
 # move ws to another monitor
 bindsym $mod+Control+Shift+Right move workspace to output right
 bindsym $mod+Control+Shift+Left move workspace to output left
