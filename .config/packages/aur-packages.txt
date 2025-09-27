@@ -1,4 +1,4 @@
 betterlockscreen
 tealdear
-sioyek
+sioyek-git
 typeracer
