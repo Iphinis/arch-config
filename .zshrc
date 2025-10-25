@@ -1,7 +1,13 @@
 # Key bindings
-bindkey "^[[H" beginning-of-line   # end
-bindkey "^[[F" end-of-line         # home
-bindkey "^[[3~" delete-char        # del
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char
+
+bindkey "^[[1;5C" emacs-forward-word 
+bindkey "^[[1;5D" emacs-backward-word
+
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
 
 # Auto completion
 autoload -Uz compinit; compinit
