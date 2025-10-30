@@ -42,7 +42,7 @@ if ! pacman -Qs "yay" > /dev/null; then
 	rm -rf yay
 fi
 
-# pacman packages
+# pacman
 (set +x; echo -e "\n[core-packages installation]")
 sudo pacman -S --needed - < $PKGCONF/core-packages.txt
 (set +x; echo -e "\n[utility-packages installation]")
@@ -52,9 +52,19 @@ sudo pacman -S --needed - < $PKGCONF/browser-packages.txt
 (set +x; echo -e "\n[fonts installation]")
 sudo pacman -S --needed - < $PKGCONF/fonts.txt
 
-# yay packages
+if [[ -r $PKGCONF/personal-arch.txt ]]; then
+	(set +x; echo -e "\n[personal arch installation]")
+	sudo pacman -S --needed - < $PKGCONF/personal-arch.txt
+fi
+
+# yay
 (set +x; echo -e "\n[aur-packages installation]")
 yay -S --needed - < $PKGCONF/aur-packages.txt
+
+if [[ -r $PKGCONF/personal-aur.txt ]]; then
+	(set +x; echo -e "\n[personal yay installation]")
+	sudo pacman -S --needed - < $PKGCONF/personal-aur.txt
+fi
 
 # systemd services
 (set +x; echo -e "\n[systemd services activation]")

@@ -13,7 +13,6 @@ fzf
 
 i3-wm
 feh
-picom
 rofi
 autotiling
 
@@ -22,6 +21,7 @@ xsel
 
 pipewire-audio
 pavucontrol
+easyeffects
 
 bluez
 bluez-utils

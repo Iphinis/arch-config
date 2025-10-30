@@ -1,10 +1,10 @@
 # Key bindings
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-bindkey "^[[3~" delete-char
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
 
-bindkey "^[[1;5C" emacs-forward-word 
-bindkey "^[[1;5D" emacs-backward-word
+bindkey '^[[1;5C' emacs-forward-word 
+bindkey '^[[1;5D' emacs-backward-word
 
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
@@ -15,20 +15,20 @@ autoload -Uz compinit; compinit
 zstyle ':completion:*:*:*:*:*' menu select # selection menu
 zstyle ':completion:*' complete yes
 zstyle ':completion:*' accept-exact yes
+
 zstyle ':completion:*' auto-description 'specify: %d' # placeholder in prompt of current completion
 zstyle ':completion:*' completer _expand _complete # globbing (filename expansion) and complete with other arguments
 zstyle ':completion:*' group-name ''
 
 zstyle ':completion:*' list-colors '' # colorize completion options
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:messages' format ' %F{[ purple ]}%d%f'
+zstyle ':completion:*:warnings' format ' %F{red}[ no matches found ]%f'
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matcher
 zstyle ':completion:*' rehash true # rebuild completion cache when installing a new command
 zstyle ':completion:*' use-compctl false # disable old completion system
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,tty,cmd f' # kill command completion
 zstyle ':completion:*' use-cache on # use cache to speed up some commands
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,tty,cmd f' # kill command completion
 
 # Custom prompt string
 autoload -Uz vcs_info

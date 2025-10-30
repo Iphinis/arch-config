@@ -27,9 +27,6 @@ exec_always --no-startup-id betterlockscreen --wall
 
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -s blur || systemctl suspend || betterlockscreen -l
 
-# Run picom as daemon (compositor)
-exec --no-startup-id picom -b
-
 # Window autotiling
 exec_always --no-startup-id autotiling
 
@@ -225,7 +222,7 @@ title_align center
 # window tiling
 
 ## hide window title bar
-set $border_size 1
+set $border_size 3
 default_border pixel $border_size
 default_floating_border pixel $border_size
 for_window [class="^.*"] border pixel $border_size
@@ -244,7 +241,6 @@ gaps inner $gap_size
 
 ### gaps with screen edges
 gaps outer 0px
-#-$gap_size
 
 # Colors
 

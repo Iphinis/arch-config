@@ -5,9 +5,3 @@ zip
 unzip
 
 bat
-
-obsidian
-
-cheese
-
-libreoffice-still
