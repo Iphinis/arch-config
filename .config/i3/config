@@ -21,7 +21,7 @@ font pango:DejaVu Sans Mono 8, Terminus Bold Semi-Condensed 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Use betterlockscreen set wallpaper and lockscreen
+# Use betterlockscreen to set wallpaper and lockscreen
 exec_always --no-startup-id sh -c 'betterlockscreen --update "$(xdg-user-dir PICTURES)/Wallpapers"'
 exec_always --no-startup-id betterlockscreen --wall
 
@@ -51,80 +51,97 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # BINDINGS
 #############################
 
-# Shortcut to open file explorer
+# Shortcuts
+
+## File explorer
 bindsym $mod+z exec --no-startup-id thunar
 
-# Use flameshot to screenshot
-bindsym $mod+Shift+S exec --no-startup-id flameshot gui
+## Screenshot
+bindsym $mod+shift+s exec --no-startup-id flameshot gui
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+## Browser
+bindsym $mod+v exec --no-startup-id firefox
+
+## Audio control
+bindsym $mod+g exec --no-startup-id pavucontrol
+
+## Audio control
+bindsym $mod+b exec --no-startup-id blueberry
+
+# Functionalities
+
+## Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
+## move tiling windows via drag & drop by left-clicking into the title bar,
+## or left-clicking anywhere into the window while holding the floating modifier.
 #tiling_drag modifier titlebar
 
-# start a terminal
+## start a terminal
 bindsym $mod+q exec kitty
 
-# kill focused window
+## kill focused window
 bindsym $mod+Shift+q kill
 
-# Use rofi as a program launcher
+## Use rofi as a program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run -no-lazy-grab -auto-select -disable-history -show-icons -run-command "i3-msg exec '{cmd}'"
 
-# Use rofi as a powermenu (not working)
+## Use rofi as a powermenu (not working)
 #bindsym $mod+Shift+p exec --no-startup-id rofi -show power-menu -modi "power-menu:./rofi-power-menu --choices=shutdown/reboot"
 
-# change focus
+## change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
+### alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+## move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys:
+### alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+## split in horizontal orientation
+bindsym $mod+Shift+h split h
 
-# split in vertical orientation
-bindsym $mod+v split v
+## split in vertical orientation
+bindsym $mod+Shift+v split v
 
-# enter fullscreen mode for the focused container
+## enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+## change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+## toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+## change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+## focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
+## focus the child container
 #bindsym $mod+d focus child
+
+#############################
+# WORKSPACES
+#############################
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -213,7 +230,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #############################
-# STYLE
+# WINDOW STYLE
 #############################
 
 # title
@@ -234,7 +251,6 @@ for_window [floating] move position center
 set $gap_size 10px
 smart_gaps on
 hide_edge_borders smart
-smart_borders on
 
 ### gaps between windows but also with screen edges
 gaps inner $gap_size

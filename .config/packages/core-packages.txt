@@ -21,7 +21,6 @@ xsel
 
 pipewire-audio
 pavucontrol
-easyeffects
 
 bluez
 bluez-utils
